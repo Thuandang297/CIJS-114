@@ -1,0 +1,41 @@
+/* CSS */
+.search-container {
+  display: inline-flex;       /* inline-flex giúp thanh search chỉ rộng vừa đủ hoặc tùy biến linh hoạt */
+  align-items: center;        /* Căn giữa icon và input theo chiều dọc tuyệt đối */
+  width: 100%;                
+  max-width: 350px;           /* Độ rộng tối đa của thanh tìm kiếm (bạn có thể tùy chỉnh) */
+  height: 40px;               /* Chiều cao của thanh search */
+  padding: 0 14px;            /* Khoảng cách thụt lề 2 bên trong thanh search */
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;  /* Màu viền xám nhạt như trong ảnh */
+  border-radius: 6px;         /* Bo góc nhẹ cho khung viền */
+  box-sizing: border-box;
+}
+
+/* Định dạng cho Icon kính lúp */
+.search-icon {
+  color: #b0b0b0;             /* Màu xám nhạt của icon */
+  margin-right: 10px;         /* Khoảng cách từ icon đến chữ nhập vào (thay cho gap) */
+  flex-shrink: 0;             /* Đảm bảo icon không bao giờ bị bóp méo khi thu nhỏ màn hình */
+}
+
+/* Định dạng cho Thẻ Input nhập liệu */
+.search-input {
+  flex: 1;                    /* Ép ô input chiếm toàn bộ không gian còn lại trong khung */
+  border: none;               /* Ẩn viền mặc định của thẻ input */
+  outline: none;              /* Ẩn đường viền đen mặc định khi người dùng click vào */
+  font-size: 14px;            
+  color: #333333;             /* Màu chữ khi người dùng gõ vào */
+  background: transparent;     /* Làm mờ nền input để lộ nền trắng của thẻ cha */
+}
+
+/* Định dạng màu riêng cho chữ mờ gợi ý (Placeholder) */
+.search-input::placeholder {
+  color: #b0b0b0;             /* Màu xám mờ của chữ "Search Items" giống trong ảnh */
+  opacity: 1;                 /* Đảm bảo hiển thị chuẩn trên mọi trình duyệt */
+}
+
+/* Hiệu ứng đổi màu viền nhẹ nhàng khi người dùng click vào gõ chữ (Tùy chọn thêm để tăng UX) */
+.search-container:focus-within {
+  border-color: #a0a0a0;
+}
