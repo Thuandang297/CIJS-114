@@ -1,8 +1,8 @@
-import { tasks, users } from '../../data'
+import { users } from '../../data'
 import Task from '../Task'
 import './styles.css'
 const Column = (props) => {
-  const { statusName = "Test", totalTasks, statusId } = props
+  const { statusName = "Test", totalTasks, statusId, tasks } = props
   return (
     <div style={{ backgroundColor: '#E6ECF0', borderRadius: '5px', minWidth: '318px', flex: 1, padding: '10px', overflowY: 'auto' }}>
       {/* Title */}
@@ -21,12 +21,13 @@ const Column = (props) => {
       {/* Tasks */}
       <div style={{ display: 'flex', flexDirection: 'column', rowGap: '12px' }} className="tasks">
         {tasks.filter(task => task.statusId === statusId)
-          .map(task => {
+          .map((task, index) => {
             return <Task
+              key={index}
               title={task.title}
               description={task.description}
               userName={users.find(user => user.userId === task.assignedTo).name}
-              estimateDate={(task.deadline).toDateString()}
+              estimateDate={task.deadline ?? ''}
               flagId={task.flagId}
             />;
           })}

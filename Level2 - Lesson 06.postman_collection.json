@@ -1,0 +1,308 @@
+{
+  "info": {
+    "_postman_id": "d5079e33-a8d5-41e3-b1cd-d2b4b22b0292",
+    "name": "Level2 - Lesson 06",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "19916445"
+  },
+  "item": [
+    {
+      "name": "/users",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://mindx-mockup-server.vercel.app/api/resources/users?apiKey=6974d253912a2afb2f310cde",
+          "protocol": "https",
+          "host": [
+            "mindx-mockup-server",
+            "vercel",
+            "app"
+          ],
+          "path": [
+            "api",
+            "resources",
+            "users"
+          ],
+          "query": [
+            {
+              "key": "apiKey",
+              "value": "6974d253912a2afb2f310cde"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "/users - create",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"userId\": 5,\r\n    \"name\": \"Vũ Thái Sơn\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://mindx-mockup-server.vercel.app/api/resources/users?apiKey=6974d253912a2afb2f310cde",
+          "protocol": "https",
+          "host": [
+            "mindx-mockup-server",
+            "vercel",
+            "app"
+          ],
+          "path": [
+            "api",
+            "resources",
+            "users"
+          ],
+          "query": [
+            {
+              "key": "apiKey",
+              "value": "6974d253912a2afb2f310cde"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "/tasks- create",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"taskId\": 1,\r\n    \"title\": \"Task 2\",\r\n    \"description\": \"Lên bố cục ứng dụng thích nghi cho Mobile.\",\r\n    \"statusId\": 1,\r\n    \"flagId\": 2,\r\n    \"assignedTo\": 1,\r\n    \"deadline\": \"2024-04-12\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://mindx-mockup-server.vercel.app/api/resources/tasks?apiKey=6974d253912a2afb2f310cde",
+          "protocol": "https",
+          "host": [
+            "mindx-mockup-server",
+            "vercel",
+            "app"
+          ],
+          "path": [
+            "api",
+            "resources",
+            "tasks"
+          ],
+          "query": [
+            {
+              "key": "apiKey",
+              "value": "6974d253912a2afb2f310cde"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "/users - update",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"Lê Thanh Tâm\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://mindx-mockup-server.vercel.app/api/resources/users/6974dd588eae7c583764dfad?apiKey=6974d253912a2afb2f310cde",
+          "protocol": "https",
+          "host": [
+            "mindx-mockup-server",
+            "vercel",
+            "app"
+          ],
+          "path": [
+            "api",
+            "resources",
+            "users",
+            "6974dd588eae7c583764dfad"
+          ],
+          "query": [
+            {
+              "key": "apiKey",
+              "value": "6974d253912a2afb2f310cde"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "/tasks- update",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"title\": \"Lê Thanh Tâm\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://mindx-mockup-server.vercel.app/api/resources/tasks/6978b37654eb8a2bd6f2bdb4?apiKey=6974d253912a2afb2f310cde",
+          "protocol": "https",
+          "host": [
+            "mindx-mockup-server",
+            "vercel",
+            "app"
+          ],
+          "path": [
+            "api",
+            "resources",
+            "tasks",
+            "6978b37654eb8a2bd6f2bdb4"
+          ],
+          "query": [
+            {
+              "key": "apiKey",
+              "value": "6974d253912a2afb2f310cde"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "/users - delete",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"Lê Thanh Tâm\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://mindx-mockup-server.vercel.app/api/resources/users/6974d478912a2afb2f310e0e?apiKey=6974d253912a2afb2f310cde",
+          "protocol": "https",
+          "host": [
+            "mindx-mockup-server",
+            "vercel",
+            "app"
+          ],
+          "path": [
+            "api",
+            "resources",
+            "users",
+            "6974d478912a2afb2f310e0e"
+          ],
+          "query": [
+            {
+              "key": "apiKey",
+              "value": "6974d253912a2afb2f310cde"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "/tasks- delete",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"Lê Thanh Tâm\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://mindx-mockup-server.vercel.app/api/resources/tasks/6974d7838eae7c583764dda3?apiKey=6974d253912a2afb2f310cde",
+          "protocol": "https",
+          "host": [
+            "mindx-mockup-server",
+            "vercel",
+            "app"
+          ],
+          "path": [
+            "api",
+            "resources",
+            "tasks",
+            "6974d7838eae7c583764dda3"
+          ],
+          "query": [
+            {
+              "key": "apiKey",
+              "value": "6974d253912a2afb2f310cde"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "/taskStatus",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    },
+    {
+      "name": "/flags",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    },
+    {
+      "name": "/tasks",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://mindx-mockup-server.vercel.app/api/resources/tasks?apiKey=6978b37654eb8a2bd6f2bdb4",
+          "protocol": "https",
+          "host": [
+            "mindx-mockup-server",
+            "vercel",
+            "app"
+          ],
+          "path": [
+            "api",
+            "resources",
+            "tasks"
+          ],
+          "query": [
+            {
+              "key": "apiKey",
+              "value": "6978b37654eb8a2bd6f2bdb4"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
