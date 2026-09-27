@@ -1,19 +1,42 @@
-import { useSearchParams } from 'react-router';
+import { useState } from 'react'
+import { PlusOutlined } from '@ant-design/icons'
+import { useSearchParams } from 'react-router'
+import CreateTaskModal from './CreateTaskModal'
 import './style.css'
-const SearchBox = () => {
+
+const SearchBox = ({ statuses, onCreateTask }) => {
   const [searchParams, setSearchParams] = useSearchParams()
+  const [isCreateModalOpen, setIsCreateModalOpen] = useState(false)
+
   const handleChangeSearch = (e) => {
     const searchVal = e.target.value
     setSearchParams({ search: searchVal })
   }
+
   return (
-    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '18px 10px', height: 'auto' }}>
-      <div class="search-container">
-        <img className='search-icon' src="public\icons\search.svg" alt="" srcset="" />
-        <input onChange={handleChangeSearch} type="text" class="search-input" placeholder="Search Items" />
+    <>
+      <div className="search-toolbar">
+        <div className="search-container">
+          <img className="search-icon" src="/icons/search.svg" alt="" />
+          <input onChange={handleChangeSearch} type="text" className="search-input" placeholder="Search Items" />
+        </div>
+        <button className="new-item-button" type="button" onClick={() => setIsCreateModalOpen(true)}>
+          <PlusOutlined aria-hidden="true" />
+          New Item
+        </button>
       </div>
-      <button style={{ border: 'none', color: '#fff', height: '40px', backgroundColor: '#0013FE', borderRadius: '5px', padding: '10px 23px' }}>New Item</button>
-    </div>
+
+      {isCreateModalOpen && (
+        <CreateTaskModal
+          statuses={statuses}
+          onClose={() => setIsCreateModalOpen(false)}
+          onSaveTask={(task) => {
+            onCreateTask(task)
+            setIsCreateModalOpen(false)
+          }}
+        />
+      )}
+    </>
   )
 }
 
