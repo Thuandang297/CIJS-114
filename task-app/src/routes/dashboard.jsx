@@ -14,7 +14,9 @@ function DashBoard() {
 
     const [searchParams,] = useSearchParams()
     const keySearch = searchParams.get('search')
-    const filteredTask = (tasks ?? []).filter(e => e.title.includes(keySearch) || e.description.includes(keySearch))
+    const filteredTask = (tasks ?? []).filter(e =>
+        !keySearch || e.title.includes(keySearch) || e.description.includes(keySearch)
+    )
 
     const fetchTask = async () => {
         setLoading(true)
@@ -61,7 +63,13 @@ function DashBoard() {
             {/* Board */}
             <div style={{ width: '100%', height: '100vh', display: 'flex', flexDirection: 'column' }}>
                 {/* SearchBox */}
-                <SearchBox />
+                <SearchBox
+                    statuses={tasksStatus}
+                    onCreateTask={(task) => {
+                        setTasks((currentTasks) => [task, ...currentTasks])
+                        setFilterTasks((currentTasks) => [task, ...currentTasks])
+                    }}
+                />
 
                 {/* Columns */}
                 <div className="classColumn" style={{
@@ -77,7 +85,22 @@ function DashBoard() {
                     whiteSpace: 'nowrap'
                 }} >
                     {tasksStatus.map((column, index) =>
-                        <Column key={index} tasks={filteredTask} statusId={column.statusId} totalTasks={filterTasks.filter(task => task.statusId === column.statusId).length} statusName={column.name} />
+                        <Column
+                            key={index}
+                            tasks={filteredTask}
+                            statusId={column.statusId}
+                            totalTasks={filterTasks.filter(task => task.statusId === column.statusId).length}
+                            statusName={column.name}
+                            statuses={tasksStatus}
+                            onUpdateTask={(updatedTask) => {
+                                setTasks((currentTasks) =>
+                                    currentTasks.map((task) => task.taskId === updatedTask.taskId ? updatedTask : task)
+                                )
+                                setFilterTasks((currentTasks) =>
+                                    currentTasks.map((task) => task.taskId === updatedTask.taskId ? updatedTask : task)
+                                )
+                            }}
+                        />
                     )}
                 </div>
             </div>
