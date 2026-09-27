@@ -2,7 +2,7 @@ import { users } from '../../data'
 import Task from '../Task'
 import './styles.css'
 const Column = (props) => {
-  const { statusName = "Test", totalTasks, statusId, tasks } = props
+  const { statusName = "Test", totalTasks, statusId, tasks, statuses, onUpdateTask } = props
   return (
     <div style={{ backgroundColor: '#E6ECF0', borderRadius: '5px', minWidth: '318px', flex: 1, padding: '10px', overflowY: 'auto' }}>
       {/* Title */}
@@ -24,6 +24,9 @@ const Column = (props) => {
           .map((task, index) => {
             return <Task
               key={index}
+              task={task}
+              statuses={statuses}
+              onUpdateTask={onUpdateTask}
               title={task.title}
               description={task.description}
               userName={users.find(user => user.userId === task.assignedTo).name}

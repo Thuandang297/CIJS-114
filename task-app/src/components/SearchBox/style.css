@@ -1,41 +1,255 @@
-/* CSS */
 .search-container {
-  display: inline-flex;       /* inline-flex giúp thanh search chỉ rộng vừa đủ hoặc tùy biến linh hoạt */
-  align-items: center;        /* Căn giữa icon và input theo chiều dọc tuyệt đối */
-  width: 100%;                
-  max-width: 350px;           /* Độ rộng tối đa của thanh tìm kiếm (bạn có thể tùy chỉnh) */
-  height: 40px;               /* Chiều cao của thanh search */
-  padding: 0 14px;            /* Khoảng cách thụt lề 2 bên trong thanh search */
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
+  max-width: 350px;
+  height: 40px;
+  padding: 0 14px;
   background-color: #ffffff;
-  border: 1px solid #e0e0e0;  /* Màu viền xám nhạt như trong ảnh */
-  border-radius: 6px;         /* Bo góc nhẹ cho khung viền */
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
   box-sizing: border-box;
 }
 
-/* Định dạng cho Icon kính lúp */
 .search-icon {
-  color: #b0b0b0;             /* Màu xám nhạt của icon */
-  margin-right: 10px;         /* Khoảng cách từ icon đến chữ nhập vào (thay cho gap) */
-  flex-shrink: 0;             /* Đảm bảo icon không bao giờ bị bóp méo khi thu nhỏ màn hình */
+  color: #b0b0b0;
+  margin-right: 10px;
+  flex-shrink: 0;
 }
 
-/* Định dạng cho Thẻ Input nhập liệu */
 .search-input {
-  flex: 1;                    /* Ép ô input chiếm toàn bộ không gian còn lại trong khung */
-  border: none;               /* Ẩn viền mặc định của thẻ input */
-  outline: none;              /* Ẩn đường viền đen mặc định khi người dùng click vào */
-  font-size: 14px;            
-  color: #333333;             /* Màu chữ khi người dùng gõ vào */
-  background: transparent;     /* Làm mờ nền input để lộ nền trắng của thẻ cha */
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  color: #333333;
+  background: transparent;
 }
 
-/* Định dạng màu riêng cho chữ mờ gợi ý (Placeholder) */
 .search-input::placeholder {
-  color: #b0b0b0;             /* Màu xám mờ của chữ "Search Items" giống trong ảnh */
-  opacity: 1;                 /* Đảm bảo hiển thị chuẩn trên mọi trình duyệt */
+  color: #b0b0b0;
+  opacity: 1;
 }
 
-/* Hiệu ứng đổi màu viền nhẹ nhàng khi người dùng click vào gõ chữ (Tùy chọn thêm để tăng UX) */
 .search-container:focus-within {
   border-color: #a0a0a0;
+}
+
+.search-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 10px;
+}
+
+.new-item-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 40px;
+  padding: 0 23px;
+  border: 0;
+  border-radius: 5px;
+  color: #fff;
+  background: #0013fe;
+  cursor: pointer;
+}
+
+.new-item-button:hover {
+  background: #1526e8;
+}
+
+.create-task-backdrop {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: rgb(20 24 32 / 38%);
+}
+
+.create-task-modal {
+  width: min(100%, 660px);
+  max-height: calc(100vh - 32px);
+  overflow-y: auto;
+  padding: 24px;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 12px 40px rgb(0 0 0 / 18%);
+  color: #333;
+  font-family: Arial, sans-serif;
+}
+
+.create-task-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.create-task-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid #e8e8e8;
+  border-radius: 10px;
+  color: #67c991;
+  font-size: 20px;
+}
+
+.create-task-close {
+  padding: 0;
+  border: 0;
+  color: #77808a;
+  background: transparent;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.create-task-modal h2 {
+  margin: 0 0 24px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.create-task-fields {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 170px;
+  gap: 20px 16px;
+}
+
+.create-task-field {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 8px;
+  color: #40454d;
+  font-size: 14px;
+}
+
+.create-task-field > span strong {
+  color: #ee4b4b;
+}
+
+.create-task-field input,
+.create-task-field textarea,
+.create-task-field select {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #dedfe3;
+  border-radius: 9px;
+  padding: 12px 14px;
+  color: #343941;
+  background: #fff;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 5%);
+  font: inherit;
+}
+
+.create-task-field input,
+.create-task-field select {
+  min-height: 46px;
+}
+
+.create-task-field textarea {
+  min-height: 84px;
+  resize: vertical;
+}
+
+.create-task-field input:focus,
+.create-task-field textarea:focus,
+.create-task-field select:focus {
+  border-color: #8b61df;
+  outline: 2px solid rgb(139 97 223 / 15%);
+}
+
+.create-task-field ::placeholder {
+  color: #a9adb4;
+}
+
+.create-task-title-field {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.create-task-field small {
+  color: #e53935;
+  font-size: 14px;
+}
+
+.create-task-fields > .create-task-field:nth-child(2) {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.create-task-fields > .create-task-field:nth-child(3) {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.create-task-fields > .create-task-field:nth-child(4) {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.create-task-status-field {
+  grid-column: 1;
+  grid-row: 3;
+  max-width: 220px;
+}
+
+.create-task-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.create-task-actions button {
+  min-height: 46px;
+  flex: 1;
+  border-radius: 9px;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.create-task-cancel {
+  border: 1px solid #dedfe3;
+  color: #40454d;
+  background: #fff;
+}
+
+.create-task-save {
+  border: 1px solid #8052d8;
+  color: #fff;
+  background: #8052d8;
+}
+
+.create-task-save:hover {
+  background: #7142cb;
+}
+
+@media (max-width: 560px) {
+  .create-task-modal {
+    padding: 20px;
+  }
+
+  .create-task-fields {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .create-task-title-field,
+  .create-task-fields > .create-task-field:nth-child(2),
+  .create-task-fields > .create-task-field:nth-child(3),
+  .create-task-fields > .create-task-field:nth-child(4),
+  .create-task-status-field {
+    grid-column: 1;
+    grid-row: auto;
+    max-width: none;
+  }
 }
